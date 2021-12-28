@@ -1,5 +1,7 @@
 public class CycleInLL {
 
+    // TC - O(n)
+    // Space - O(1)
     public static class ListNode {
         int val;
         ListNode next;
@@ -18,6 +20,9 @@ public class CycleInLL {
         ListNode slow = head;
         ListNode fast = head;
         boolean hasCycle = false;
+        // finding the point where are meeting
+        // running slow with 1 speed, fast with 2 speed
+        // if they are equal at any point, then that means there's a cycle
         while(fast!=null && fast.next!=null) {
             slow = slow.next;
             fast = fast.next.next;
