@@ -34,4 +34,27 @@ public class ReverseLinkedList {
         // new head is the reversed linked list's head
         return head1;
     }
+
+    // reversing the linked list using three pointers
+    // TC - O(n)
+    // space - O(1)
+    private ListNode reverse(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next = curr.next;
+
+        while(curr!=null) {
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            if(next!=null) {
+                next = next.next;
+            }
+        }
+        return prev;
+    }
 }
